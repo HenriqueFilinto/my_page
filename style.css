@@ -2,8 +2,8 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
-    min-height: 100vh;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 body::before {
@@ -20,16 +20,13 @@ body::before {
 
 #bg-video {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1;
-    transform: translate(-50%, -50%);
-    filter: blur(4px);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
+    z-index: -1;
+    filter: blur(1px);
 }
 
 .conteudo {
@@ -213,4 +210,8 @@ button:active {
     z-index: 10;
     color: rgba(255, 255, 255, 0.452);
     font-size: 14px;
+}
+
+* {
+    box-sizing: border-box;
 }
