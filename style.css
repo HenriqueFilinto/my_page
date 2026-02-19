@@ -131,10 +131,23 @@ button:active {
     }
 
     .player {
-        width: 100%;
-        bottom: 0;
-        right: 0;
-        border-radius: 15px 15px 0 0;
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+        max-width: fit-content;
+        padding: 10px 15px;
+        border-radius: 30px;
+        gap: 10px;
+    }
+
+    .player-info {
+        display: none;
+    }
+
+    .buttao {
+        width: 35px !important;
+        height: 35px !important;
     }
 }
 
