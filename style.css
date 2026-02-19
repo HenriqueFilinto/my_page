@@ -193,3 +193,11 @@ button:active {
     font-size: 0.8rem;
     letter-spacing: 2px;
 }
+
+.email {
+    position: relative;
+    top: 20px;
+    z-index: 10;
+    color: rgba(255, 255, 255, 0.452);
+    font-size: 14px;
+}
