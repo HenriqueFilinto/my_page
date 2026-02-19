@@ -79,12 +79,18 @@ button {
     border: none;
     border-radius: 16px;
     padding-top: 17px;
-    background-color: rgba(0, 0, 0, 0.267);
+    background-color: rgba(0, 0, 0, 0.658);
     color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     animation: pulsar 2s infinite ease-in-out;
+    gap: 12px;
+}
+
+button i{
+    font-size: 20px;
+    filter: drop-shadow(0 0 2px rgba(255,255,255, 0.5));
 }
 
 .botoes {
@@ -177,6 +183,7 @@ button:active {
     gap: 10px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     z-index: 9999;
+    align-items: center;
 }
 
 .buttao {
