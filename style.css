@@ -112,3 +112,21 @@ button:active {
     filter: drop-shadow(0 0 5px rgb(112, 3, 207))
             drop-shadow(0 0 5px rgb(112, 3, 207));
 }
+
+/* Configurações para Celular (telas até 768px) */
+@media (max-width: 768px) {
+    .nome {
+        font-size: 30px; /* Reduz o tamanho da fonte para não transbordar */
+        text-align: center;
+    }
+
+    .conteudo {
+        width: 90%; /* Deixa o container ocupar quase toda a largura */
+        padding: 10px;
+    }
+
+    body::before {
+        /* Garante que a imagem de fundo não fique esticada ou deformada */
+        background-attachment: scroll; 
+    }
+}
