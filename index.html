@@ -1,70 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shinjoia</title>
+    <title>Henrique Filinto · Backend Python & ETL</title>
+    <meta name="description" content="Henrique Filinto — estudante de Sistemas de Informação focado em Backend Python, pipelines ETL e automação.">
+    <meta property="og:title" content="Henrique Filinto · Backend Python & ETL">
+    <meta property="og:description" content="Backend Python · ETL · Automação. Projetos, stack e contato.">
+    <meta property="og:image" content="https://shinjoiak.online/images/pfp.jpg">
+    <meta property="og:url" content="https://shinjoiak.online">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="icon" type="image/png" href="images/megumin.jpeg">
 </head>
 <body>
 
-    <div class="background-video">
-        <video autoplay muted loop id="bg-video">
-            <source src="images/back.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-        </video>
-    </div>
+    <video autoplay muted loop playsinline id="bg-video" poster="images/pfp.jpg">
+        <source src="images/back.mp4" type="video/mp4">
+    </video>
 
     <div class="player">
-        <audio id="rainOnBrick">
+        <audio id="rainOnBrick" preload="none">
             <source src="music/Rain on Brick.mp3" type="audio/mpeg">
-             Your browser does not support the audio element.
         </audio>
-
         <div class="player-info">
-            <span id="track-name">
-                <i class="fa-brands fa-itunes-note"></i>  Rain on Brick - Bill Kiley
-            </span>
+            <span id="track-name"><i class="fa-brands fa-itunes-note"></i> Rain on Brick - Bill Kiley</span>
         </div>
-
-        <div class="controls">
-            <button onclick="togglePlay()" id="btnPlay" class="buttao">
-                <span id="icon">▶</span>
-            </button>
-        </div>
+        <button type="button" id="btnPlay" class="buttao" aria-label="Tocar música">
+            <span id="icon">▶</span>
+        </button>
     </div>
 
-    <div class="conteudo">
-        <img src="images/pfp.jpg" alt="pfp" width="150">
+    <main class="conteudo">
 
-        <div class="infos">
-            <h2 class="nome">𖤐 Shinjoia</h2>
-            <p class="cidade">⤷ São Paulo, Brasil</p>
-            <p class="frase">
-                "Studying...<i class="fa-solid fa-code"></i>"
-            </p>
-        </div>
-        <div class="botoes">
-            <button onclick="window.open('https://github.com/HenriqueFilinto', '_blank')">
+        <header class="hero">
+            <img src="images/pfp.jpg" alt="Foto de Henrique Filinto" width="150" height="150" class="pfp">
+            <h1 class="nome">𖤐 Shinjoia</h1>
+            <p class="nome-real">Henrique Filinto</p>
+            <p class="cidade">⤷ São Bernardo do Campo, SP</p>
+            <p class="frase">"Backend Python · ETL · Automação <i class="fa-solid fa-code"></i>"</p>
+            <span class="status"><span class="dot"></span> aberto a estágio · híbrido / remoto</span>
+        </header>
+
+        <nav class="botoes">
+            <a class="btn" href="https://github.com/HenriqueFilinto" target="_blank" rel="noopener">
                 <i class="fa-brands fa-github"></i> Github
-            </button>
-            <button onclick="window.open('https://linkedin.com/in/henriquefilinto', 'blank')">
+            </a>
+            <a class="btn" href="https://linkedin.com/in/henriquefilinto" target="_blank" rel="noopener">
                 <i class="fa-brands fa-linkedin"></i> LinkedIn
-            </button>
-            <!-- <button>Twitter</button> -->
-            <button onclick="window.open('https://www.instagram.com/hsilva_joia/', 'blank')">
-                <i class="fa-brands fa-instagram"></i>Instagram
-            </button>
-        </div>
+            </a>
+            <a class="btn" href="docs/curriculo-henrique-filinto.pdf" target="_blank" rel="noopener">
+                <i class="fa-regular fa-file-lines"></i> Currículo (PDF)
+            </a>
+            <a class="btn" href="mailto:h.filintosilva@proton.me">
+                <i class="fa-regular fa-envelope"></i> Email
+            </a>
+        </nav>
+
+        <section class="secao-bloco">
+            <h2 class="secao">⤷ projetos</h2>
+
+            <a class="card" href="https://github.com/HenriqueFilinto/etl-price-monitor" target="_blank" rel="noopener">
+                <span class="card-titulo"><i class="fa-solid fa-database"></i> ETL Price Monitor <i class="fa-solid fa-arrow-up-right-from-square ext"></i></span>
+                <p>Pipeline ETL que coleta preços via API, guarda histórico relacional e dispara alertas no Discord.</p>
+                <p class="destaque">› alertas idempotentes (sem duplicata após restart) e valores em centavos <code>int</code> contra erro de <code>float</code></p>
+                <ul class="tags"><li>Python</li><li>SQLAlchemy 2.0</li><li>PostgreSQL</li><li>Pytest</li><li>Webhooks</li></ul>
+            </a>
+
+            <a class="card" href="https://github.com/HenriqueFilinto/Spotify-AutoPlaylist" target="_blank" rel="noopener">
+                <span class="card-titulo"><i class="fa-brands fa-spotify"></i> Spotify × Last.fm AutoPlaylist <i class="fa-solid fa-arrow-up-right-from-square ext"></i></span>
+                <p>CLI que lê suas faixas curtidas, cruza com tags do Last.fm e sincroniza playlists sob medida.</p>
+                <p class="destaque">› OAuth 2.0 com escopos mínimos e fallback automático de tags (faixa → artista)</p>
+                <ul class="tags"><li>Python</li><li>OAuth2</li><li>APIs REST</li><li>CLI</li></ul>
+            </a>
+        </section>
+
+        <section class="secao-bloco">
+            <h2 class="secao">⤷ stack</h2>
+            <ul class="tags stack">
+                <li>Python</li><li>SQL</li><li>FastAPI</li><li>SQLAlchemy</li><li>PostgreSQL</li>
+                <li>SQLite</li><li>Pytest</li><li>n8n</li><li>Bash</li><li>Git</li><li>Linux</li>
+            </ul>
+        </section>
 
         <footer class="email">
-           <i class="fa-regular fa-envelope"></i>  Email: filintotwt@gmail.com
+            <i class="fa-regular fa-envelope"></i> h.filintosilva@proton.me
+            <a href="https://www.instagram.com/hsilva_joia/" target="_blank" rel="noopener" aria-label="Instagram" class="insta">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
         </footer>
 
-    </div>
-        
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>

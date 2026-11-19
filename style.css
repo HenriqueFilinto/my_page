@@ -1,224 +1,325 @@
-body {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    overflow-x: hidden;
-    min-height: 100vh;
+* {
+    box-sizing: border-box;
 }
 
-body::before {
-    content: "";
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    filter: blur(2px);
-    z-index: -1;
-    transform: scale(1.1);
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #fff;
+    background: #000;
 }
 
 #bg-video {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100vw;
     height: 100vh;
     object-fit: cover;
     z-index: -1;
-    filter: blur(1px);
+    filter: blur(1px) brightness(0.85);
 }
+
+/* ---------- layout ---------- */
 
 .conteudo {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 740px;
-    width: 450px;
-    gap: 20px;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0);
-    border-radius: 40px;
-
+    gap: 28px;
+    width: min(450px, 92vw);
+    margin: 0 auto;
+    padding: 80px 0 48px;
 }
 
-img {
-    border-radius: 100%;
-    position: relative;
-    top: -30px;
-    z-index: 10;
-}
+/* ---------- hero ---------- */
 
-.infos {
-    position: relative;
-    top: -50px;
-    z-index:  10;
-    font-size: 16px;
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
+.pfp {
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+.nome {
+    margin: 8px 0 0;
+    font-size: 1.6rem;
+    background: linear-gradient(90deg, #fff 9%, rgba(236, 236, 236, 0.6) 50%, #fff 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 5px #fff);
+}
+
+.nome-real {
+    margin: 4px 0 0;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
 .cidade {
-    position: relative;
-    top: -10px;
-    z-index: 10;
-    color: rgb(243, 243, 243);
+    margin: 12px 0 0;
     font-weight: bolder;
+    color: rgb(243, 243, 243);
 }
 
 .frase {
+    margin: 8px 0 0;
     font-weight: lighter;
-    color: rgba(255, 255, 255, 0.603);
+    color: rgba(255, 255, 255, 0.65);
 }
 
-button {
-    display: flex;
-    width: 400px;
-    height: 50px;
-    justify-content: center;
-    border: none;
-    border-radius: 16px;
-    padding-top: 17px;
-    background-color: rgba(0, 0, 0, 0.658);
-    color: rgb(255, 255, 255);
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    animation: pulsar 2s infinite ease-in-out;
-    gap: 12px;
+.status {
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
 }
 
-button i{
-    font-size: 20px;
-    filter: drop-shadow(0 0 2px rgba(255,255,255, 0.5));
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 8px #fff;
+    animation: blink 2s infinite ease-in-out;
 }
+
+@keyframes blink {
+    50% { opacity: 0.3; }
+}
+
+/* ---------- link buttons (same look as before) ---------- */
 
 .botoes {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 100%;
 }
 
-button:hover{
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    height: 50px;
+    width: 100%;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.658);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.15s, background-color 0.15s;
+}
+
+.btn i {
+    font-size: 20px;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+}
+
+.btn:hover,
+.card:hover {
     transform: scale(1.03);
-    background-color: rgba(66, 66, 66, 0.418);
+    background-color: rgba(66, 66, 66, 0.55);
+}
+
+.btn:active {
+    animation: impacto 0.3s linear;
 }
 
 @keyframes impacto {
     0% { transform: scale(1); }
-    30% { transform: scale(0.9); }
-    60% { transform: scale(1.1); }
+    30% { transform: scale(0.95); }
+    60% { transform: scale(1.04); }
     100% { transform: scale(1); }
 }
 
-button:active {
-    animation: impacto 0.3s linear;
+/* ---------- sections ---------- */
+
+.secao-bloco {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
 }
 
-
-.nome {
-    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 9%, rgba(236, 236, 236, 0.46) 36%, rgba(3, 0, 0, 1) 70%);
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-
-    filter: drop-shadow(0 0 5px rgb(255, 255, 255))
-            drop-shadow(0 0 5px rgb(255, 255, 255));
+.secao {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-/* Configurações para Celular (telas até 768px) */
+.card {
+    display: block;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.658);
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.15s, background-color 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.card-titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.card-titulo .ext {
+    margin-left: auto;
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+.card p {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.card .destaque {
+    font-family: 'Courier New', monospace;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.card code {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 0 4px;
+    border-radius: 4px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tags li {
+    padding: 3px 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+}
+
+.stack {
+    margin: 0;
+    padding: 14px;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- footer ---------- */
+
+.email {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.insta {
+    color: rgba(255, 255, 255, 0.55);
+    margin-left: 6px;
+}
+
+.insta:hover {
+    color: #fff;
+}
+
+/* ---------- player (unchanged look) ---------- */
+
+.player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: rgba(0, 0, 0, 0.274);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid #fff;
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    z-index: 9999;
+}
+
+.buttao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 15px #fff;
+    cursor: pointer;
+}
+
+#track-name {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+/* ---------- responsive / a11y ---------- */
+
 @media (max-width: 768px) {
-    .nome {
-        font-size: 30px; /* Reduz o tamanho da fonte para não transbordar */
-        text-align: center;
-    }
-
-    .conteudo {
-        width: 90%; /* Deixa o container ocupar quase toda a largura */
-        padding: 10px;
-    }
-
-    body::before {
-        /* Garante que a imagem de fundo não fique esticada ou deformada */
-        background-attachment: scroll; 
-    }
-
     .player {
         top: 10px;
         right: 10px;
-        left: 10px;
-        width: auto;
-        max-width: fit-content;
-        padding: 10px 15px;
-        border-radius: 30px;
-        gap: 10px;
+        padding: 8px;
     }
 
     .player-info {
         display: none;
     }
 
-    .buttao {
-        width: 35px !important;
-        height: 35px !important;
+    .conteudo {
+        padding-top: 64px;
     }
 }
 
-
-.player {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.274);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid #ffffff;
-    border-radius: 50px;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    z-index: 9999;
-    align-items: center;
-}
-
-.buttao {
-    background: #ffffff;
-    color: #000;
-    box-shadow: 0 0 15px #ffffff;
-    
-    width: 35px !important; 
-    height: 35px !important;
-    
-    padding: 0 !important; 
-    border-radius: 50%;
-    border: none;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    cursor: pointer;
-}
-
-#track-name{
-    color: #ffffff;
-    font-family: 'Courier New', monospace;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-}
-
-.email {
-    position: relative;
-    top: 20px;
-    z-index: 10;
-    color: rgba(255, 255, 255, 0.452);
-    font-size: 14px;
-}
-
-* {
-    box-sizing: border-box;
+@media (prefers-reduced-motion: reduce) {
+    #bg-video { display: none; }
+    body { background: #0b0b0b url("images/pfp.jpg") center / cover fixed; }
+    .dot { animation: none; }
 }
